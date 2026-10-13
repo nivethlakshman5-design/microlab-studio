@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101114" />
+    <title>MicroLab Studio</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #101114; color: #f4f4f5; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; }
+      main { width: min(520px, calc(100% - 48px)); }
+      h1 { font-size: 1.8rem; margin-bottom: .6rem; }
+      p { color: #b8bbc4; line-height: 1.6; }
+      code { color: #c4b5fd; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>MicroLab Studio</h1>
+      <p>This desktop shell needs a public production URL before release. Set <code>MICROLAB_PUBLIC_URL</code> and rebuild the app.</p>
+    </main>
+    <script type="module">
+      const target = %MICROLAB_PUBLIC_URL%;
+      if (target) window.location.replace(target);
+    </script>
+  </body>
+</html>

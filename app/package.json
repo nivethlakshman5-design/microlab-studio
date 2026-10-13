@@ -18,10 +18,22 @@
     "typecheck": "tsr generate && tsc --noEmit",
     "check:ui": "node scripts/check-ui.mjs",
     "check:adapted": "bun scripts/check-adaptation.mjs",
-    "test": "bun test tests/*.test.ts"
+    "test": "bun test tests/*.test.ts",
+    "app:sync": "bun run app:configure && cap sync",
+    "app:android:add": "cap add android",
+    "app:ios:add": "cap add ios",
+    "app:android:open": "cap open android",
+    "app:ios:open": "cap open ios",
+    "app:desktop:dev": "tauri dev",
+    "app:desktop:build": "TAURI_BUILD=1 node scripts/prepare-native-desktop.mjs && tauri build",
+    "app:configure": "node scripts/configure-native-endpoint.mjs",
+    "app:desktop:prepare": "node scripts/prepare-native-desktop.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.5.0",
+    "@capacitor/android": "^7",
+    "@capacitor/core": "^7",
+    "@capacitor/ios": "^7",
     "@dimforge/rapier3d-compat": "^0.21.0",
     "@higgsfield/app-landing": "workspace:*",
     "@higgsfield/fnf": "workspace:*",
@@ -57,9 +69,11 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7",
     "@cloudflare/workers-types": "^5.20260708.1",
     "@eslint/js": "^10.0.1",
     "@tanstack/router-cli": "^1.167.18",
+    "@tauri-apps/cli": "^2",
     "@types/node": "^26.1.0",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
