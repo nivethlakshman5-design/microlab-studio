@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, BookOpen, CircuitBoard, Code2, Cpu, FolderKanban, Menu, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, CircuitBoard, Code2, Cpu, FolderKanban, GitBranch, Menu, X } from "lucide-react";
 import { ScrollScrub } from "@/components/scroll-scrub/scroll-scrub";
 import { StudioApp } from "@/components/microlab/studio-app";
 import { scrollScrubScenes, scrollScrubTheme } from "@/scroll-scrub-scenes";
@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({ component: MicroLabHome });
 
 function MicroLabHome() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const links = [{ label: "Studio", href: "#workspace", icon: CircuitBoard }, { label: "Learn", href: "#learn", icon: BookOpen }, { label: "Code Studio", href: "#code-studio", icon: Code2 }, { label: "Virtual Lab", href: "#virtual-lab", icon: Cpu }, { label: "Projects", href: "#projects", icon: FolderKanban }];
+  const links = [{ label: "Studio", href: "#workspace", icon: CircuitBoard }, { label: "Learn", href: "#learn", icon: BookOpen }, { label: "Code Studio", href: "#code-studio", icon: Code2 }, { label: "Virtual Lab", href: "#virtual-lab", icon: Cpu }, { label: "Projects", href: "#projects", icon: FolderKanban }, { label: "Node Workshop", href: "#node-studio", icon: GitBranch }];
   return <main className="ml-app">
     <a className="skip-link" href="#workspace">Skip to the learning studio</a>
     <header className="site-header">

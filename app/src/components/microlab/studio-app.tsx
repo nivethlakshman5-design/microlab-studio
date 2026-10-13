@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import { StudioOverview } from "./workspace-panels";
 import { CodePanel, LearnPanel } from "./workspace-panels";
 import { VirtualLabPanel } from "./lab-panels";
+import { NodeLabPanel } from "./node-lab";
 import { GuidePanel, ProjectsPanel, DocsPanel } from "./guide-panels";
-import { Board, GUIDE, LESSONS, PROJECTS, STARTER, STORAGE_KEY } from "./studio-data";
+import { Board, GUIDE, LESSONS, PROJECTS, STARTER, STORAGE_KEY, CODE_EXAMPLES } from "./studio-data";
 
 export function StudioApp() {
  const [board, setBoard] = useState<Board>("Arduino Uno");
@@ -28,6 +29,7 @@ export function StudioApp() {
  }, []);
  useEffect(() => { if (!ready) return; try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ board, sketch, done, parts })); } catch { /* Session remains usable without storage. */ } }, [board, sketch, done, parts, ready]);
  const progress = Math.round(done.length / LESSONS.length * 100);
+ function loadExample(id: string) { const example = CODE_EXAMPLES[id]; if (!example) return; setSketch(example.code); setBoard(example.board); setCheck(`${example.label} loaded. Review the wiring notes before using physical hardware.`); setStatus("Example loaded · local only"); setSerial((s) => [...s, `[example] Loaded ${example.label}. No device connected.`].slice(-12)); }
  const lesson = LESSONS.find((l) => l.id === lessonId) ?? LESSONS[1];
  const filteredProjects = useMemo(() => PROJECTS.filter((p) => (filter === "All" || p.level === filter) && `${p.title} ${p.copy} ${p.tags}`.toLowerCase().includes(search.trim().toLowerCase())), [filter, search]);
  const jump = (id: string) => window.document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
@@ -37,10 +39,11 @@ export function StudioApp() {
  function complete(id: string) { setDone((items) => items.includes(id) ? items : [...items, id]); setQuiz("Lesson marked complete. Progress is saved in this browser."); }
  return <>
   <StudioOverview board={board} done={done} progress={progress} jump={jump} setLessonId={setLessonId} />
-  <CodePanel board={board} setBoard={setBoard} sketch={sketch} setSketch={setSketch} serial={serial} setSerial={setSerial} status={status} check={check} setCheck={setCheck} verify={verify} run={run} reset={() => { setSketch(STARTER); setCheck("Starter sketch restored."); setStatus("Ready for a local simulation"); }} />
-  <LearnPanel done={done} lesson={lesson} lessonId={lessonId} setLessonId={setLessonId} choice={choice} setChoice={setChoice} quiz={quiz} setQuiz={setQuiz} complete={complete} jump={jump} />
+  <CodePanel board={board} setBoard={setBoard} loadExample={loadExample} sketch={sketch} setSketch={setSketch} serial={serial} setSerial={setSerial} status={status} check={check} setCheck={setCheck} verify={verify} run={run} reset={() => { setSketch(STARTER); setCheck("Starter sketch restored."); setStatus("Ready for a local simulation"); }} />
+  <LearnPanel loadExample={loadExample} done={done} lesson={lesson} lessonId={lessonId} setLessonId={setLessonId} choice={choice} setChoice={setChoice} quiz={quiz} setQuiz={setQuiz} complete={complete} jump={jump} />
   <VirtualLabPanel board={board} setBoard={setBoard} led={led} setLed={setLed} pressed={pressed} setPressed={setPressed} parts={parts} setParts={setParts} status={status} setStatus={setStatus} setSerial={setSerial} />
-  <ProjectsPanel filtered={filteredProjects} filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} setLessonId={setLessonId} jump={jump} />
+  <NodeLabPanel />
+  <ProjectsPanel loadExample={loadExample} filtered={filteredProjects} filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} setLessonId={setLessonId} jump={jump} />
   <GuidePanel question={question} setQuestion={setQuestion} answer={answer} ask={ask} />
   <DocsPanel reset={() => { try { window.localStorage.removeItem(STORAGE_KEY); } catch {} setDone([]); setSketch(STARTER); setParts(["LED", "Resistor"]); setBoard("Arduino Uno"); setCheck("Local workspace reset."); }} />
  </>;
