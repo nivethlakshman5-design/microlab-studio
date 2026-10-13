@@ -8,7 +8,7 @@ on:
 
 jobs:
   validate:
-    runs-on: arc-runners-frontend
+    runs-on: ubuntu-latest
     name: Validate template
     # The app project lives in app/ (ci/ holds the deploy config, AGENTS.md +
     # skills/ stay at root). Every build step runs there.
@@ -17,6 +17,10 @@ jobs:
         working-directory: app
     steps:
       - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - uses: oven-sh/setup-bun@v2
 
