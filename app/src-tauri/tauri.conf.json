@@ -6,8 +6,8 @@
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:5173",
-    "beforeBuildCommand": "TAURI_BUILD=1 node scripts/prepare-native-desktop.mjs",
-    "frontendDist": "../dist/desktop"
+    "beforeBuildCommand": "node scripts/configure-native-endpoint.mjs",
+    "frontendDist": "../native-shell"
   },
   "app": {
     "windows": [

@@ -11,6 +11,12 @@ if (process.env.CAPACITOR_RELEASE === '1' && !publicUrl) {
 if (publicUrl && !/^https:\/\//i.test(publicUrl)) {
   throw new Error('MICROLAB_PUBLIC_URL must use HTTPS.');
 }
+if (publicUrl) {
+  const hostname = new URL(publicUrl).hostname;
+  if (hostname === 'microlab-studio.higgsfield.app' || hostname.endsWith('.higgsfield.app')) {
+    throw new Error('Use a public production endpoint; the current Higgsfield hosting requires authentication for logged-out visitors.');
+  }
+}
 
 const config: CapacitorConfig = {
   appId: 'studio.microlab.app',

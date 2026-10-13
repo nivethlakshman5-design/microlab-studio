@@ -25,9 +25,8 @@
     "app:android:open": "cap open android",
     "app:ios:open": "cap open ios",
     "app:desktop:dev": "tauri dev",
-    "app:desktop:build": "TAURI_BUILD=1 node scripts/prepare-native-desktop.mjs && tauri build",
-    "app:configure": "node scripts/configure-native-endpoint.mjs",
-    "app:desktop:prepare": "node scripts/prepare-native-desktop.mjs"
+    "app:desktop:build": "node scripts/configure-native-endpoint.mjs && tauri build",
+    "app:configure": "node scripts/configure-native-endpoint.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.5.0",
