@@ -1,8 +1,8 @@
 {
-  "og_title": null,
-  "og_description": null,
-  "og_image_url": null,
-  "favicon_url": null,
-  "og_video_url": null,
-  "marketplace_cover_url": null
+ "og_title": "MicroLab Studio",
+ "og_description": "Learn Arduino and ESP32 by editing sketches, exploring short lessons and trying a simplified virtual circuit lab.",
+ "og_image_url": "https://microlab-studio.higgsfield.app/assets/brand/microlab-og.png",
+ "favicon_url": "/assets/brand/favicon.svg",
+ "og_video_url": null,
+ "marketplace_cover_url": "https://microlab-studio.higgsfield.app/assets/brand/microlab-cover.png"
 }
