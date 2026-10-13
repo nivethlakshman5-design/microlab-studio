@@ -34,3 +34,27 @@ describe("MicroLab Studio standalone website contract", () => {
     }
   });
 });
+
+describe("beginner examples and touch interactions", () => {
+  test("every advertised example has a complete sketch and the correct board profile", () => {
+    const data = readFileSync(new URL("../src/components/microlab/studio-data.ts", import.meta.url), "utf8");
+    for (const example of ["blink", "traffic", "button", "sensor", "wifi"]) {
+      expect(data).toContain(`${example}: { label:`);
+    }
+    const match = data.match(/export const CODE_EXAMPLES: Record<string, \{ label: string; board: Board; code: string \}> = ([\s\S]*?);\n/);
+    expect(match).not.toBeNull();
+    const studio = readFileSync(new URL("../src/components/microlab/studio-app.tsx", import.meta.url), "utf8");
+    expect(studio).toContain("function loadExample(id: string)");
+    expect(studio).toContain("setSketch(example.code)");
+    expect(studio).toContain("setBoard(example.board)");
+  });
+
+  test("project cards and lesson practice load examples into the editor rather than only scrolling", () => {
+    const projects = readFileSync(new URL("../src/components/microlab/guide-panels.tsx", import.meta.url), "utf8");
+    const lessons = readFileSync(new URL("../src/components/microlab/workspace-panels.tsx", import.meta.url), "utf8");
+    expect(projects).toContain("loadExample(exampleId)");
+    expect(projects).toContain("Try example");
+    expect(lessons).toContain("loadExample(lessonId");
+    expect(lessons).toContain("Load example");
+  });
+});
