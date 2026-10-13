@@ -1,7 +1,7 @@
 /** Security headers applied to every Worker response. */
 export function applySecurityHeaders(response: Response): Response {
  const headers = new Headers(response.headers);
- headers.set("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https:; frame-src 'self' https://auth.higgsfield.app https://auth.higgsfield-dev.app; base-uri 'self'; form-action 'self'; object-src 'none'");
+ headers.set("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https:; frame-src 'self' https://auth.higgsfield.app https://auth.higgsfield-dev.app; base-uri 'self'; form-action 'self'; object-src 'none'");
  headers.set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload");
  headers.set("X-Content-Type-Options", "nosniff");
  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");

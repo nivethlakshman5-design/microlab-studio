@@ -9,4 +9,6 @@ test("allows the host approval iframe and preserves the response", async () => {
     "frame-src 'self' https://auth.higgsfield.app https://auth.higgsfield-dev.app;",
   );
   expect(response.headers.get("content-security-policy")).not.toContain("frame-ancestors");
+  expect(response.headers.get("content-security-policy")).toContain("script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval';");
+  expect(response.headers.get("content-security-policy")).not.toContain("unsafe-eval;");
 });

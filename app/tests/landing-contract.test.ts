@@ -13,6 +13,13 @@ describe("MicroLab Studio standalone website contract", () => {
     expect(studio).toContain("VirtualLabPanel");
     expect(studio).toContain("ProjectsPanel");
     expect(studio).toContain("GuidePanel");
+    expect(studio).toContain("BuildLabPanel");
+    const builder = readFileSync(new URL("../src/components/microlab/build-lab.tsx", import.meta.url), "utf8");
+    expect(builder).toContain("new THREE.WebGLRenderer");
+    expect(builder).toContain("Parts catalogue");
+    expect(builder).toContain("application/microlab-part");
+    expect(builder).toContain("@dimforge/rapier3d-compat");
+    expect(builder).toContain("Add 3D landscape");
   });
 
   test("does not expose the scaffold's generation app route", () => {
