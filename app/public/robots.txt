@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nivethlakshman5-design.github.io/microlab-studio/sitemap.xml

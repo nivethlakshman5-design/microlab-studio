@@ -22,6 +22,9 @@ export default defineConfig(({ command, mode }) => {
   const designInspectorEnabled = process.env.HF_DESIGN_INSPECTOR === "1" || mode === "design";
 
   return {
+    // Publish as a static, standalone website on GitHub Pages. The repository
+    // path is injected by CI; local development keeps the normal root path.
+    base: process.env.VITE_BASE_PATH || "/",
     // fsevents can miss edits under some setups (bun-launched dev, synced/virtual
     // dirs), leaving HMR dead so changes only appear after a manual restart.
     // Polling the watcher makes file changes reliably trigger HMR / SSR reload.
@@ -99,6 +102,9 @@ export default defineConfig(({ command, mode }) => {
       // inside effects/handlers, or guarded with `typeof window !== "undefined"`.
       tanstackStart({
         server: { entry: "server" },
+        // Pre-render the public learning workspace so it can run on a static
+        // host without a server runtime or platform-specific bindings.
+        prerender: { enabled: true, crawlLinks: false, failOnError: true },
       }),
       higgsfieldDesignInspectorVitePlugin(designInspectorEnabled),
       react({

@@ -14,16 +14,6 @@ dist-ssr
 .nitro
 *.local
 
-# Native build artifacts
-android/.gradle/
-android/local.properties
-android/**/build/
-android/.idea/
-ios/Pods/
-ios/build/
-ios/DerivedData/
-src-tauri/target/
-native-shell/app-config.js.local
 
 # Wrangler / Cloudflare
 .wrangler/
@@ -40,5 +30,3 @@ native-shell/app-config.js.local
 *.sln
 *.sw?
 
-# Generated native endpoint config
-native-shell/app-config.js

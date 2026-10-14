@@ -9,10 +9,10 @@ export const LESSONS = [
  { id: "sensor", n: "04", title: "Read a sensor", level: "Next step", time: "18 min", copy: "Connect a distance sensor and send measurements to the serial monitor.", outcome: "Trace a sensor reading from input to serial output.", icon: Activity },
 ];
 export const PROJECTS = [
- { id: "blink", title: "Blink an LED", level: "Beginner", time: "10 min", copy: "Your first output, one pin and a clear feedback loop.", image: "/assets/sections/project-led.svg", tags: "GPIO · Timing" },
- { id: "traffic", title: "Traffic light", level: "Beginner", time: "20 min", copy: "Sequence three lights with readable timing logic.", image: "/assets/sections/project-traffic.svg", tags: "Outputs · Logic" },
- { id: "distance", title: "Ultrasonic distance", level: "Intermediate", time: "30 min", copy: "Measure an echo pulse and turn time into distance.", image: "/assets/sections/project-sensor.svg", tags: "Sensor · Serial" },
- { id: "wifi", title: "ESP32 status beacon", level: "Intermediate", time: "35 min", copy: "Explore Wi-Fi capability and the difference between a board and a service.", image: "/assets/sections/project-wifi.svg", tags: "ESP32 · IoT" },
+ { id: "blink", title: "Blink an LED", level: "Beginner", time: "10 min", copy: "Your first output, one pin and a clear feedback loop.", image: `${import.meta.env.BASE_URL}assets/sections/project-led.svg`, tags: "GPIO · Timing" },
+ { id: "traffic", title: "Traffic light", level: "Beginner", time: "20 min", copy: "Sequence three lights with readable timing logic.", image: `${import.meta.env.BASE_URL}assets/sections/project-traffic.svg`, tags: "Outputs · Logic" },
+ { id: "distance", title: "Ultrasonic distance", level: "Intermediate", time: "30 min", copy: "Measure an echo pulse and turn time into distance.", image: `${import.meta.env.BASE_URL}assets/sections/project-sensor.svg`, tags: "Sensor · Serial" },
+ { id: "wifi", title: "ESP32 status beacon", level: "Intermediate", time: "35 min", copy: "Explore Wi-Fi capability and the difference between a board and a service.", image: `${import.meta.env.BASE_URL}assets/sections/project-wifi.svg`, tags: "ESP32 · IoT" },
 ];
 export const GUIDE = [
  { keys: ["setup", "loop"], answer: "setup() runs once after the board starts. loop() repeats while the board is powered, so put recurring behavior there." },
