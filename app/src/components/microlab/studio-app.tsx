@@ -4,6 +4,7 @@ import { StudioOverview } from "./workspace-panels";
 import { CodePanel, LearnPanel } from "./workspace-panels";
 import { VirtualLabPanel } from "./lab-panels";
 import { BuildLabPanel } from "./build-lab";
+import { CircuitBuilder } from "./circuit-builder";
 import { GuidePanel, ProjectsPanel, DocsPanel } from "./guide-panels";
 import { Board, GUIDE, LESSONS, PROJECTS, STARTER, STORAGE_KEY, CODE_EXAMPLES } from "./studio-data";
 
@@ -73,6 +74,7 @@ export function StudioApp({ devOpen = false, closeDev = () => {} }: { devOpen?: 
   <CodePanel board={board} setBoard={setBoard} loadExample={loadExample} sketch={sketch} setSketch={setSketch} serial={serial} setSerial={setSerial} status={status} check={check} setCheck={setCheck} verify={verify} run={run} reset={() => { setSketch(STARTER); setCheck("Starter sketch restored."); setStatus("Ready for a local simulation"); }} />
   <LearnPanel loadExample={loadExample} done={done} lesson={lesson} lessonId={lessonId} setLessonId={selectLesson} choice={choice} setChoice={setChoice} quiz={quiz} setQuiz={setQuiz} complete={complete} jump={jump} />
   <VirtualLabPanel board={board} setBoard={setBoard} led={led} setLed={setLed} pressed={pressed} setPressed={setPressed} parts={parts} setParts={setParts} status={status} setStatus={setStatus} setSerial={setSerial} />
+  <CircuitBuilder />
   <BuildLabPanel />
   <ProjectsPanel loadExample={loadExample} filtered={filteredProjects} filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} setLessonId={selectLesson} jump={jump} />
   <GuidePanel question={question} setQuestion={setQuestion} answer={answer} ask={ask} />
