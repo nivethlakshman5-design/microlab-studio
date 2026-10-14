@@ -55,3 +55,12 @@ button:hover svg,a:hover svg{transform:translateX(2px)}
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0ms!important}
   .lesson-card:hover,.learning-card:hover,.challenge-card:hover,.passport-card:hover,.feature-card:hover,.project-card:hover{transform:none}
 }
+
+/* A small, restrained color lift: brighter accents without changing the layout. */
+:root{--accent:#df5364;--forest:#2f6957;--soft:#edf1e9}
+.brand-mark{background:#fff0f1;border-color:#edc4c9}
+.strip-icon{background:#f2f7ed;border-color:#dce7d7;color:#2f6957}
+.section-heading h2 em,.docs-heading h2 em,.guide-aside h2 em{color:#2f6957}
+.header-start:hover{background:#2f6957}
+.progress-ring{background:conic-gradient(#df5364 var(--progress),#dce2dd 0)}
+.lesson-card:hover,.learning-card:hover,.challenge-card:hover,.passport-card:hover,.feature-card:hover,.project-card:hover{border-color:#e5b2b9}
