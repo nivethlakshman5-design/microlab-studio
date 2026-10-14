@@ -1,5 +1,4 @@
-# MicroLab Studio content and design editor configuration for Pages CMS.
-# Access is controlled by GitHub repository permissions; never put secrets here.
+# Structured forms for MicroLab Studio. Authentication is delegated to GitHub permissions.
 media:
   input: app/public/uploads
   output: /uploads
@@ -9,30 +8,136 @@ content:
     label: Learning path and quizzes
     type: group
     items:
-      - name: lesson-data
-        label: Lessons, quiz questions and code examples
+      - name: learning-content
+        label: Lessons and quiz questions
         type: file
-        path: app/src/components/microlab/studio-data.ts
-        format: code
-        options:
-          language: typescript
+        path: app/src/components/microlab/learning-content.json
+        format: json
         operations:
           delete: false
-      - name: lesson-interface
-        label: Learning path interface
+        fields:
+          - name: lessons
+            label: Lessons
+            type: object
+            list:
+              min: 1
+              max: 30
+              collapsible:
+                collapsed: true
+                summary: "{n}. {title}"
+            fields:
+              - name: id
+                label: Internal lesson ID (do not change)
+                type: string
+                readonly: true
+                required: true
+              - name: n
+                label: Lesson number
+                type: string
+                required: true
+              - name: title
+                label: Lesson title
+                type: string
+                required: true
+              - name: level
+                label: Learning level
+                type: select
+                options:
+                  values: [Beginner, Builder, Explorer, Capstone]
+              - name: time
+                label: Estimated time
+                type: string
+              - name: copy
+                label: Lesson description
+                type: text
+                required: true
+              - name: outcome
+                label: Learning objective
+                type: text
+                required: true
+              - name: icon
+                label: Lesson icon
+                type: select
+                options:
+                  values: [Cpu, Zap, Power, Activity, Radio, SlidersHorizontal, Gauge, RotateCw, Wifi, GitBranch, Bot]
+              - name: quiz
+                label: Quick challenge
+                type: object
+                fields:
+                  - name: question
+                    label: Question
+                    type: text
+                    required: true
+                  - name: answers
+                    label: Answer choices
+                    type: object
+                    list:
+                      min: 2
+                      max: 4
+                      collapsible: true
+                    fields:
+                      - name: letter
+                        label: Choice letter
+                        type: select
+                        options:
+                          values: [A, B, C, D]
+                      - name: text
+                        label: Answer text
+                        type: text
+                        required: true
+                  - name: correct
+                    label: Correct answer letter
+                    type: select
+                    options:
+                      values: [A, B, C, D]
+                  - name: explain
+                    label: Correct-answer explanation
+                    type: text
+                    required: true
+      - name: code-examples
+        label: Code examples
         type: file
-        path: app/src/components/microlab/workspace-panels.tsx
-        format: code
-        options:
-          language: typescript
+        path: app/src/components/microlab/code-examples.json
+        format: json
         operations:
           delete: false
+        fields:
+          - name: examples
+            label: Code examples
+            type: object
+            list:
+              min: 1
+              max: 30
+              collapsible:
+                collapsed: true
+                summary: "{id}: {label}"
+            fields:
+              - name: id
+                label: Example ID (do not change)
+                type: string
+                readonly: true
+                required: true
+              - name: label
+                label: Example name
+                type: string
+                required: true
+              - name: board
+                label: Board
+                type: select
+                options:
+                  values: [Arduino Uno, ESP32]
+              - name: code
+                label: Arduino / ESP32 code
+                type: code
+                options:
+                  language: cpp
+
   - name: appearance
     label: Appearance and layout
     type: group
     items:
       - name: studio-styles
-        label: Colors, spacing and responsive layout
+        label: Colors, spacing and responsive layout (advanced code)
         type: file
         path: app/src/components/microlab/workspace.css
         format: code
@@ -41,7 +146,7 @@ content:
         operations:
           delete: false
       - name: global-styles
-        label: Global theme and typography
+        label: Global theme and typography (advanced code)
         type: file
         path: app/src/styles.css
         format: code

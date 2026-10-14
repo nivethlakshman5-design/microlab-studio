@@ -1,23 +1,17 @@
-# MicroLab Studio admin editing
+# MicroLab Studio editing guide
 
-## Secure sign-in
+The site remains hosted on GitHub Pages. Pages CMS edits the connected GitHub repository; do not connect this project to Cloudflare or publish it to a community feed.
 
-Use the hosted Pages CMS editor: https://app.pagescms.org/ and sign in with the GitHub account that has write access to `nivethlakshman5-design/microlab-studio`. Install/authorize its GitHub App for **this repository only** when prompted. Never create a password in the website's frontend or put tokens/passwords in this repository.
+## Structured content forms
 
-The editor configuration is `.pages.yml`. It exposes a bounded set of source files for editing: lesson definitions, quiz content, code examples, learning-path interface, CSS/theme, site metadata, and uploaded media. Some advanced edits require TypeScript/CSS knowledge; this is an initial source-editor workflow, not a visual drag-and-drop builder.
+In Pages CMS, open **Learning path and quizzes**. **Lessons and quiz questions** contains editable forms for each lesson's title, level, duration, description, objective, icon and quick challenge. Open a lesson card to edit its question, answer text, correct answer letter and explanation. Keep the internal lesson ID unchanged. Use choice letters A–D consistently and ensure the correct-answer letter matches one of the answer choices.
 
-## Safe workflow (recommended)
+Open **Code examples** to edit an example name, target board and C++ source. Keep the example ID unchanged so buttons and lessons continue to find the right example.
 
-1. In Pages CMS, select the `main` branch only for a quick change you are comfortable publishing directly.
-2. For a safer preview, create/select a separate branch such as `admin-preview` in GitHub first, then select that branch in the editor.
-3. Save changes to that branch. Open a pull request from the preview branch to `main` and review the diff before merging.
-4. Merging to `main` triggers the existing GitHub Actions workflow to build and publish GitHub Pages. No Cloudflare deployment is used.
-5. If a change is wrong, use GitHub repository → History to revert the commit (or use Revert on the pull request/commit), then merge the revert to `main`. The Pages deployment workflow republishes the restored version.
+## Safe publishing
 
-## Current boundaries
+CMS saves are Git commits. Prefer editing on a non-production branch first, review the changes, and merge into `main` only when ready. A push to `main` that touches `app/**` triggers the existing GitHub Pages build-and-deploy workflow. To roll back, revert the bad commit in GitHub and merge/push that revert. GitHub repository access protects the CMS; never add a password to front-end code.
 
-- Public website remains a static GitHub Pages site; there is no embedded `/admin` login because GitHub Pages cannot enforce server-side authentication on a route.
-- The hosted CMS is the private editing entry point, protected by GitHub authorization and repository permissions.
-- The first setup exposes source editors for functionality and design. It does not yet provide visual form fields for every page element or database-backed user accounts.
-- Do not add passwords, API keys, OAuth secrets, or private user data to source files.
-- Uploaded media should go under `app/public/uploads/` and should be referenced by public URL in the website.
+## Current limits
+
+These forms manage lesson, quiz and code-example content. Styling controls, a custom `/admin` login page, visual layout designer, and in-app preview/publish/rollback controls are not part of this step. GitHub Pages is static and cannot by itself provide secure server-side authentication.

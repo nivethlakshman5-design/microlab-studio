@@ -1,0 +1,304 @@
+{
+  "lessons": [
+    {
+      "id": "start",
+      "n": "01",
+      "title": "Meet your board",
+      "level": "Beginner",
+      "time": "8 min",
+      "copy": "Find the USB port, power pins, digital pins and the processor that runs your sketch.",
+      "outcome": "Identify the board, ground, power and a digital pin.",
+      "icon": "Cpu",
+      "quiz": {
+        "question": "What is GND used for in a basic circuit?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Ground / reference"
+          },
+          {
+            "letter": "B",
+            "text": "Extra power output"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! GND is the circuit’s ground reference. Check wiring before powering real hardware."
+      }
+    },
+    {
+      "id": "blink",
+      "n": "02",
+      "title": "Blink an LED",
+      "level": "Beginner",
+      "time": "12 min",
+      "copy": "Use setup, loop, pinMode, digitalWrite and delay to make a light blink.",
+      "outcome": "Change the blink interval and explain HIGH versus LOW.",
+      "icon": "Zap",
+      "quiz": {
+        "question": "Which function runs once when a board starts?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "setup()"
+          },
+          {
+            "letter": "B",
+            "text": "loop()"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! setup() runs once; loop() repeats while the board is running."
+      }
+    },
+    {
+      "id": "button",
+      "n": "03",
+      "title": "Read a button",
+      "level": "Beginner",
+      "time": "15 min",
+      "copy": "Turn a physical input into a program decision with a digital read.",
+      "outcome": "Describe input pins, pull-up logic and a simple if statement.",
+      "icon": "Power",
+      "quiz": {
+        "question": "With INPUT_PULLUP, a pressed button wired to GND usually reads…",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "HIGH"
+          },
+          {
+            "letter": "B",
+            "text": "LOW"
+          }
+        ],
+        "correct": "B",
+        "explain": "Correct! The internal pull-up makes the idle state HIGH; connecting the input to GND makes it LOW."
+      }
+    },
+    {
+      "id": "sensor",
+      "n": "04",
+      "title": "Read a sensor",
+      "level": "Beginner",
+      "time": "18 min",
+      "copy": "Follow a sensor signal into your program and inspect the output.",
+      "outcome": "Trace a sensor reading from input to serial output.",
+      "icon": "Activity",
+      "quiz": {
+        "question": "Where can you inspect measurements printed by Serial.println()?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Serial Monitor"
+          },
+          {
+            "letter": "B",
+            "text": "PinMode menu"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! Serial Monitor displays text sent over the serial connection at a matching baud rate."
+      }
+    },
+    {
+      "id": "serial",
+      "n": "05",
+      "title": "Talk over Serial",
+      "level": "Beginner",
+      "time": "10 min",
+      "copy": "Print useful messages and measurements to make invisible code easier to debug.",
+      "outcome": "Choose a baud rate and explain println versus print.",
+      "icon": "Radio",
+      "quiz": {
+        "question": "What does Serial.println(value) do?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Prints a value then starts a new line"
+          },
+          {
+            "letter": "B",
+            "text": "Changes a GPIO pin to HIGH"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! println writes text and ends the line, making readings easier to scan."
+      }
+    },
+    {
+      "id": "analog",
+      "n": "06",
+      "title": "Read analog values",
+      "level": "Builder",
+      "time": "16 min",
+      "copy": "Turn a potentiometer or light sensor into a changing number.",
+      "outcome": "Explain analogRead and why ADC ranges depend on the board.",
+      "icon": "SlidersHorizontal",
+      "quiz": {
+        "question": "Which function reads an analog input on Arduino-style boards?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "analogRead()"
+          },
+          {
+            "letter": "B",
+            "text": "digitalWrite()"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! analogRead samples an ADC input; resolution and voltage range depend on the board."
+      }
+    },
+    {
+      "id": "pwm",
+      "n": "07",
+      "title": "Dim an LED with PWM",
+      "level": "Builder",
+      "time": "14 min",
+      "copy": "Use pulse-width modulation to control perceived brightness.",
+      "outcome": "Relate a PWM duty value to LED brightness and pin limits.",
+      "icon": "Gauge",
+      "quiz": {
+        "question": "What does increasing PWM duty cycle usually do to an LED?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Makes it appear brighter"
+          },
+          {
+            "letter": "B",
+            "text": "Changes its colour automatically"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! A higher duty cycle keeps the output active for more of each PWM period."
+      }
+    },
+    {
+      "id": "servo",
+      "n": "08",
+      "title": "Move a servo",
+      "level": "Builder",
+      "time": "20 min",
+      "copy": "Command a small servo to move between safe target angles.",
+      "outcome": "Explain angle commands and why servos may need separate power.",
+      "icon": "RotateCw",
+      "quiz": {
+        "question": "What is the safest assumption about a servo’s power needs?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Check current needs; use suitable power"
+          },
+          {
+            "letter": "B",
+            "text": "Any GPIO pin can power it directly"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! Servos can draw more current than a GPIO can supply. Use a suitable supply and common ground."
+      }
+    },
+    {
+      "id": "distance",
+      "n": "09",
+      "title": "Measure distance",
+      "level": "Builder",
+      "time": "22 min",
+      "copy": "Understand ultrasonic trigger and echo timing for obstacle sensing.",
+      "outcome": "Describe how echo travel time becomes an estimated distance.",
+      "icon": "Activity",
+      "quiz": {
+        "question": "An ultrasonic sensor estimates distance mainly from…",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Echo travel time"
+          },
+          {
+            "letter": "B",
+            "text": "Wi-Fi signal strength"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! The sensor measures sound pulse travel time and converts it to an estimated distance."
+      }
+    },
+    {
+      "id": "wifi",
+      "n": "10",
+      "title": "ESP32 goes online",
+      "level": "Explorer",
+      "time": "25 min",
+      "copy": "Explore Wi-Fi capability and the extra care needed for network credentials.",
+      "outcome": "Distinguish ESP32 3.3 V logic from Uno 5 V logic and keep secrets out of code shared publicly.",
+      "icon": "Wifi",
+      "quiz": {
+        "question": "What should you remember about ESP32 GPIO logic?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Typically 3.3 V; check compatibility"
+          },
+          {
+            "letter": "B",
+            "text": "All pins safely accept 5 V"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! ESP32 GPIO is generally 3.3 V logic and is not usually 5 V tolerant."
+      }
+    },
+    {
+      "id": "motors",
+      "n": "11",
+      "title": "Drive a DC motor",
+      "level": "Explorer",
+      "time": "24 min",
+      "copy": "Learn why a motor driver sits between a microcontroller and a motor.",
+      "outcome": "Explain direction control, PWM speed control and common ground.",
+      "icon": "GitBranch",
+      "quiz": {
+        "question": "Why use a motor driver with a microcontroller?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Motors need more current and switching protection"
+          },
+          {
+            "letter": "B",
+            "text": "It makes code unnecessary"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! A suitable driver handles motor current and switching; follow its wiring and protection guidance."
+      }
+    },
+    {
+      "id": "robot",
+      "n": "12",
+      "title": "Build a mini robot",
+      "level": "Capstone",
+      "time": "30 min",
+      "copy": "Combine sensing, decisions and motor control into a simple robot plan.",
+      "outcome": "Sketch a safe sense-decide-act loop for an obstacle-avoiding robot.",
+      "icon": "Bot",
+      "quiz": {
+        "question": "What is a basic robot control loop?",
+        "answers": [
+          {
+            "letter": "A",
+            "text": "Sense, decide, act"
+          },
+          {
+            "letter": "B",
+            "text": "Power, wait, forget"
+          }
+        ],
+        "correct": "A",
+        "explain": "Correct! A robot repeatedly senses its environment, decides what to do, and acts."
+      }
+    }
+  ]
+}

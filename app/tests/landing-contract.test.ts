@@ -44,12 +44,26 @@ describe("MicroLab Studio standalone website contract", () => {
 
 describe("beginner examples and touch interactions", () => {
   test("every advertised example has a complete sketch and the correct board profile", () => {
-    const data = readFileSync(new URL("../src/components/microlab/studio-data.ts", import.meta.url), "utf8");
-    for (const example of ["blink", "traffic", "button", "sensor", "wifi"]) {
-      expect(data).toContain(`${example}: { label:`);
+    const data = JSON.parse(readFileSync(new URL("../src/components/microlab/code-examples.json", import.meta.url), "utf8")) as {
+      examples: { id: string; label: string; board: string; code: string }[];
+    };
+    for (const id of ["blink", "traffic", "button", "sensor", "wifi"]) {
+      const example = data.examples.find((item) => item.id === id);
+      expect(example).toBeDefined();
+      expect(example?.label.length).toBeGreaterThan(0);
+      expect(example?.code).toContain("void setup()");
+      expect(example?.code).toContain("void loop()");
+      expect(example?.board).toMatch(/^(Arduino Uno|ESP32)$/);
     }
-    const match = data.match(/export const CODE_EXAMPLES: Record<string, \{ label: string; board: Board; code: string \}> = ([\s\S]*?);\n/);
-    expect(match).not.toBeNull();
+    const studioData = readFileSync(new URL("../src/components/microlab/studio-data.ts", import.meta.url), "utf8");
+    expect(studioData).toContain('import codeExamplesContent from "./code-examples.json"');
+    const lessons = JSON.parse(readFileSync(new URL("../src/components/microlab/learning-content.json", import.meta.url), "utf8")) as {
+      lessons: { id: string; quiz: { answers: { letter: string }[]; correct: string } }[];
+    };
+    expect(lessons.lessons).toHaveLength(12);
+    for (const lesson of lessons.lessons) {
+      expect(lesson.quiz.answers.some((answer) => answer.letter === lesson.quiz.correct)).toBe(true);
+    }
     const studio = readFileSync(new URL("../src/components/microlab/studio-app.tsx", import.meta.url), "utf8");
     expect(studio).toContain("function loadExample(id: string)");
     expect(studio).toContain("setSketch(example.code)");
