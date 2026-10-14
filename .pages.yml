@@ -58,21 +58,6 @@ content:
           language: json
         operations:
           delete: false
-  - name: media-library
-    label: Uploaded media
-    type: collection
-    path: app/public/uploads
-    filename: '{primary}'
-    format: raw
-    fields:
-      - name: file
-        label: File
-        type: string
-        required: true
-    operations:
-      create: true
-      rename: true
-      delete: true
 
 settings:
   content:
