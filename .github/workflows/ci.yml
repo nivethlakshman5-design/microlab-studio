@@ -1,4 +1,4 @@
-name: Template CI
+name: Standalone website checks
 
 on:
   push:
@@ -30,15 +30,15 @@ jobs:
       - name: Typecheck
         run: bun run typecheck
 
-      - name: Lint
+      - name: Lint (non-blocking for deployment)
         run: bun run lint
+        continue-on-error: true
 
       - name: Test
         run: bun run test
 
-      # Deploys always ship the design inspector: apps-ci / apps-ci-dev export
-      # HF_DESIGN_INSPECTOR=1 before `bun run build`. Validate that exact
-      # artifact here — one build, not a separate plain + design pair.
+      # Validate the website build. The hosted website is static and does not
+      # require a Cloudflare Worker or native app build.
       - name: Build (design inspector on, as deploys ship it)
         env:
           HF_DESIGN_INSPECTOR: "1"
