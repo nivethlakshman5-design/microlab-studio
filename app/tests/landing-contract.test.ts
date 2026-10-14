@@ -3,10 +3,12 @@ import { existsSync, readFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 describe("MicroLab Studio standalone website contract", () => {
-  test("home route renders the scroll-controlled journey and the product studio", () => {
+  test("home route renders the redesigned maker landing and the product studio", () => {
     const route = readFileSync(new URL("../src/routes/index.tsx", import.meta.url), "utf8");
     const studio = readFileSync(new URL("../src/components/microlab/studio-app.tsx", import.meta.url), "utf8");
-    expect(route).toContain("ScrollScrub");
+    expect(route).toContain("hero-redesign");
+    expect(route).toContain("Small circuits.");
+    expect(route).toContain("StudioApp");
     expect(route).toContain("StudioApp");
     expect(studio).toContain("CodePanel");
     expect(studio).toContain("LearnPanel");
