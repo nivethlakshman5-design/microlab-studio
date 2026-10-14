@@ -1,0 +1,81 @@
+# MicroLab Studio content and design editor configuration for Pages CMS.
+# Access is controlled by GitHub repository permissions; never put secrets here.
+media:
+  input: app/public/uploads
+  output: /uploads
+
+content:
+  - name: learning
+    label: Learning path and quizzes
+    type: group
+    items:
+      - name: lesson-data
+        label: Lessons, quiz questions and code examples
+        type: file
+        path: app/src/components/microlab/studio-data.ts
+        format: code
+        options:
+          language: typescript
+        operations:
+          delete: false
+      - name: lesson-interface
+        label: Learning path interface
+        type: file
+        path: app/src/components/microlab/workspace-panels.tsx
+        format: code
+        options:
+          language: typescript
+        operations:
+          delete: false
+  - name: appearance
+    label: Appearance and layout
+    type: group
+    items:
+      - name: studio-styles
+        label: Colors, spacing and responsive layout
+        type: file
+        path: app/src/components/microlab/workspace.css
+        format: code
+        options:
+          language: css
+        operations:
+          delete: false
+      - name: global-styles
+        label: Global theme and typography
+        type: file
+        path: app/src/styles.css
+        format: code
+        options:
+          language: css
+        operations:
+          delete: false
+      - name: site-metadata
+        label: Site title and SEO metadata
+        type: file
+        path: app/src/app-meta.json
+        format: code
+        options:
+          language: json
+        operations:
+          delete: false
+  - name: media-library
+    label: Uploaded media
+    type: collection
+    path: app/public/uploads
+    filename: '{primary}'
+    format: raw
+    fields:
+      - name: file
+        label: File
+        type: string
+        required: true
+    operations:
+      create: true
+      rename: true
+      delete: true
+
+settings:
+  content:
+    merge: true
+  commit:
+    message: 'MicroLab Studio admin: {{message}}'
