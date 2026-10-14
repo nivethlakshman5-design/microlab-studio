@@ -1,4 +1,4 @@
-import { Activity, BookOpen, Cpu, Power, Zap } from "lucide-react";
+import { Activity, BookOpen, Cpu, Power, Zap, Gauge, SlidersHorizontal, RotateCw, Radio, Wifi, Bot, GitBranch } from "lucide-react";
 export type Board = "Arduino Uno" | "ESP32";
 export const STORAGE_KEY = "microlab-studio-v1";
 export const STARTER = `// MicroLab Studio · Blink an LED\nconst int ledPin = LED_BUILTIN;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n  Serial.begin(9600);\n  Serial.println("Starting blink sketch");\n}\n\nvoid loop() {\n  digitalWrite(ledPin, HIGH);\n  delay(1000);\n  digitalWrite(ledPin, LOW);\n  delay(1000);\n}`;
@@ -6,7 +6,15 @@ export const LESSONS = [
  { id: "start", n: "01", title: "Meet your board", level: "Beginner", time: "8 min", copy: "Find the USB port, power pins, digital pins and the processor that runs your sketch.", outcome: "Identify the board, ground, power and a digital pin.", icon: Cpu },
  { id: "blink", n: "02", title: "Blink an LED", level: "Beginner", time: "12 min", copy: "Use setup, loop, pinMode, digitalWrite and delay to make a light blink.", outcome: "Change the blink interval and explain HIGH versus LOW.", icon: Zap },
  { id: "button", n: "03", title: "Read a button", level: "Beginner", time: "15 min", copy: "Turn a physical input into a program decision with a digital read.", outcome: "Describe input pins, pull-up logic and a simple if statement.", icon: Power },
- { id: "sensor", n: "04", title: "Read a sensor", level: "Next step", time: "18 min", copy: "Connect a distance sensor and send measurements to the serial monitor.", outcome: "Trace a sensor reading from input to serial output.", icon: Activity },
+ { id: "sensor", n: "04", title: "Read a sensor", level: "Beginner", time: "18 min", copy: "Follow a sensor signal into your program and inspect the output.", outcome: "Trace a sensor reading from input to serial output.", icon: Activity },
+ { id: "serial", n: "05", title: "Talk over Serial", level: "Beginner", time: "10 min", copy: "Print useful messages and measurements to make invisible code easier to debug.", outcome: "Choose a baud rate and explain println versus print.", icon: Radio },
+ { id: "analog", n: "06", title: "Read analog values", level: "Builder", time: "16 min", copy: "Turn a potentiometer or light sensor into a changing number.", outcome: "Explain analogRead and why ADC ranges depend on the board.", icon: SlidersHorizontal },
+ { id: "pwm", n: "07", title: "Dim an LED with PWM", level: "Builder", time: "14 min", copy: "Use pulse-width modulation to control perceived brightness.", outcome: "Relate a PWM duty value to LED brightness and pin limits.", icon: Gauge },
+ { id: "servo", n: "08", title: "Move a servo", level: "Builder", time: "20 min", copy: "Command a small servo to move between safe target angles.", outcome: "Explain angle commands and why servos may need separate power.", icon: RotateCw },
+ { id: "distance", n: "09", title: "Measure distance", level: "Builder", time: "22 min", copy: "Understand ultrasonic trigger and echo timing for obstacle sensing.", outcome: "Describe how echo travel time becomes an estimated distance.", icon: Activity },
+ { id: "wifi", n: "10", title: "ESP32 goes online", level: "Explorer", time: "25 min", copy: "Explore Wi-Fi capability and the extra care needed for network credentials.", outcome: "Distinguish ESP32 3.3 V logic from Uno 5 V logic and keep secrets out of code shared publicly.", icon: Wifi },
+ { id: "motors", n: "11", title: "Drive a DC motor", level: "Explorer", time: "24 min", copy: "Learn why a motor driver sits between a microcontroller and a motor.", outcome: "Explain direction control, PWM speed control and common ground.", icon: GitBranch },
+ { id: "robot", n: "12", title: "Build a mini robot", level: "Capstone", time: "30 min", copy: "Combine sensing, decisions and motor control into a simple robot plan.", outcome: "Sketch a safe sense-decide-act loop for an obstacle-avoiding robot.", icon: Bot },
 ];
 export const PROJECTS = [
  { id: "blink", title: "Blink an LED", level: "Beginner", time: "10 min", copy: "Your first output, one pin and a clear feedback loop.", image: `${import.meta.env.BASE_URL}assets/sections/project-led.svg`, tags: "GPIO · Timing" },
