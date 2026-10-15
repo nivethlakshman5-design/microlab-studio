@@ -6,3 +6,69 @@
 .main-nav a,.header-start,.menu-toggle,.rail-item,.overview-action,.path-step,.lesson-row,.quiz-options label,.quiz-check,.complete-lesson,.component-item,.project-filters button,.project-action,.guide-prompts button,.guide-form button,.text-action,.ide-buttons button,.canvas-footer button,.lab-control-actions button{touch-action:manipulation}.rail-item,.lesson-row,.path-step,.component-item,.project-filters button,.guide-prompts button{min-height:44px}.menu-toggle{min-width:44px;min-height:44px;display:none;align-items:center;justify-content:center}.component-item:active,.lesson-row:active,.path-step:active,.project-filters button:active{background:#e8f0e9;transform:scale(.99)}@media(max-width:760px){.menu-toggle{display:flex}.ide-topbar select{min-height:44px}.project-action{min-height:44px}.quiz-options label{min-height:48px}.guide-prompts button{min-height:44px}.component-item{min-height:92px}}
 .node-section{padding:clamp(3.5rem,7vw,6.5rem) 0;border-top:1px solid #dce3de}.node-workspace{border:1px solid #ccd7cf;background:#fff;box-shadow:0 20px 65px rgba(23,35,33,.055);min-width:0}.node-toolbar{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid #dce4de;background:#f8faf8}.node-toolbar>div:first-child{display:flex;flex-direction:column;gap:.3rem}.node-count{font-size:.68rem;color:#7b8981}.node-adds{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}.node-adds button{display:inline-flex;align-items:center;gap:.25rem;padding:.5rem .6rem;background:#fff;border:1px solid #d5dfd8;font-size:.67rem;color:#4e6055;cursor:pointer}.node-adds button:hover{border-color:#91a99a;background:#eff5f0}.node-canvas{height:320px;position:relative;overflow:auto;background-color:#f6f9f6;background-image:radial-gradient(#cbd7ce 1px,transparent 1px);background-size:18px 18px}.node-canvas:before{content:"GRAPH CANVAS · SELECT A NODE TO INSPECT";position:absolute;top:.8rem;left:1rem;color:#91a097;font:500 .55rem var(--mono);letter-spacing:.06em}.node-wires{position:absolute;inset:0;width:100%;height:100%;min-width:650px;pointer-events:none}.graph-node{position:absolute;width:154px;min-height:85px;display:flex;flex-direction:column;text-align:left;gap:.5rem;padding:.65rem .7rem;background:#fff;border:1px solid #cbd7ce;border-top:3px solid #28584b;box-shadow:0 5px 14px rgba(23,35,33,.06);cursor:pointer;touch-action:manipulation;z-index:2}.graph-node.node-selected{outline:2px solid #d74455;outline-offset:2px;box-shadow:0 5px 18px rgba(215,68,85,.13)}.graph-node-top{display:flex;align-items:center;gap:.45rem}.graph-node-top b{font-size:.72rem;flex:1}.graph-node-top>span:last-child{font:500 .58rem var(--mono);color:#9aa59e}.node-port{width:8px;height:8px;border-radius:50%;flex:none}.graph-node-sub{font-size:.65rem;color:#7c8981;padding-left:13px}.node-ports{display:flex;justify-content:space-between;margin-top:auto}.node-ports i{width:8px;height:8px;border:1px solid #9dad9f;border-radius:50%;background:#fff}.node-editor{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(180px,1fr) auto;align-items:center;gap:1rem;padding:1rem 1.2rem;border-top:1px solid #dce4de}.node-selected-info{display:flex;align-items:center;gap:.7rem;min-width:0}.node-selected-icon{display:grid;place-items:center;width:36px;height:36px;background:#e8efe9;color:#28584b;flex:none}.node-selected-info b,.node-selected-info small{display:block}.node-selected-info b{font-size:.78rem}.node-selected-info small{font-size:.65rem;color:#7d8982;margin-top:.15rem}.node-properties{min-width:0}.node-properties label{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.7rem;color:#5d6b62}.node-properties label>span{margin-left:auto;color:#28584b;font-family:var(--mono)}.node-properties input[type=range]{width:100%;accent-color:#28584b}.node-properties input[type=number],.node-properties select{width:100%;margin-top:.35rem;padding:.45rem;border:1px solid #d4ded7;background:#fff;font-size:.75rem}.node-property-note{font-size:.7rem;line-height:1.5;color:#78867d}.node-actions{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}.node-actions button{font-size:.67rem;padding:.55rem .6rem;min-height:34px}.node-actions button:disabled{opacity:.4}.node-log{display:flex;align-items:center;gap:.55rem;padding:.8rem 1.2rem;border-top:1px solid #e0e6e1;background:#f7f9f7;font:.67rem/1.5 var(--mono);color:#617268}.node-log svg{color:#71977b;flex:none}.terrain-physics-grid{display:grid;grid-template-columns:1.2fr .8fr;border-top:1px solid #ccd7cf}.terrain-card{padding:clamp(1rem,2.4vw,1.8rem);min-width:0}.terrain-card+.terrain-card{border-left:1px solid #dce4de}.terrain-head{display:flex;align-items:center;gap:.75rem}.terrain-head>div{flex:1;min-width:0}.terrain-icon{display:grid;place-items:center;width:40px;height:40px;background:#e6eee8;color:#28584b;flex:none}.terrain-head h3{font-size:1.1rem;letter-spacing:-.04em;margin:.25rem 0 0}.terrain-head .quiet-button{font-size:.65rem;padding:.4rem}.terrain-card>p{font-size:.76rem;line-height:1.65;color:#718078;margin:.9rem 0 1rem}.terrain-preview{height:190px;background:#f6f9f6;border:1px solid #dce4de;overflow:hidden}.terrain-preview svg{width:100%;height:100%;display:block}.terrain-sliders,.physics-sliders{display:grid;gap:.8rem;margin-top:1rem}.terrain-sliders label,.physics-sliders label{display:grid;grid-template-columns:1fr auto;gap:.45rem .8rem;font-size:.7rem;color:#637168}.terrain-sliders label b,.physics-sliders label b{font:600 .68rem var(--mono);color:#28584b}.terrain-sliders input,.physics-sliders input{grid-column:1/-1;width:100%;accent-color:#28584b}.terrain-statline{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;border-top:1px solid #e0e6e1;margin-top:1rem;padding-top:.7rem;color:#8a968f;font:500 .53rem var(--mono)}.physics-card{background:#fafcfa}.physics-results{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.2rem}.physics-results div{padding:.8rem;background:#edf3ee;border:1px solid #dce6de}.physics-results small,.physics-results b{display:block}.physics-results small{font-size:.65rem;color:#748278}.physics-results b{font-size:1.05rem;letter-spacing:-.04em;color:#28584b;margin-top:.3rem}.physics-footnote{display:block;font-size:.62rem;color:#87938b;line-height:1.5;margin-top:.7rem}.tutor-turn{padding:.75rem 0;border-top:1px solid #dce5de}.tutor-turn:first-of-type{margin-top:.5rem}.tutor-question{display:flex;align-items:flex-start;gap:.5rem;color:#28584b}.tutor-question svg{flex:none;margin-top:.15rem}.tutor-question b{font-size:.77rem;line-height:1.5}.tutor-turn p{margin:.4rem 0 0!important}.tutor-disclaimer{font-size:.64rem;color:#87938b;line-height:1.5;margin:.65rem 0 0}
 @media(max-width:760px){.node-toolbar{align-items:flex-start;flex-direction:column;padding:.85rem}.node-adds{justify-content:flex-start}.node-adds button{padding:.55rem .5rem;font-size:.62rem}.node-canvas{height:350px;min-width:0}.graph-node{width:145px}.node-editor{grid-template-columns:1fr;gap:.85rem;padding:.9rem}.node-actions{justify-content:stretch}.node-actions button{flex:1}.terrain-physics-grid{grid-template-columns:1fr}.terrain-card+.terrain-card{border-left:0;border-top:1px solid #dce4de}.terrain-head{flex-wrap:wrap}.terrain-head .quiet-button{margin-left:auto}.terrain-preview{height:160px}.terrain-statline{font-size:.48rem}}
+
+/* Mobile-first finishing pass: prevent narrow-screen overflow and make controls comfortable to tap. */
+html,body,#root{max-width:100%;overflow-x:clip}
+img,svg,canvas,video{max-width:100%}
+input,select,textarea{max-width:100%;font-size:16px}
+button,a,[role="button"],select,input[type="checkbox"],input[type="radio"]{touch-action:manipulation}
+@media(max-width:760px){
+  .ml-app{width:100%;overflow-x:clip}
+  .site-header{padding-left:max(.75rem,env(safe-area-inset-left));padding-right:max(.75rem,env(safe-area-inset-right));gap:.5rem}
+  .brand{gap:.45rem;font-size:.92rem;letter-spacing:-.035em}
+  .brand-mark{width:29px;height:29px;flex:none}
+  .header-actions{gap:.4rem}
+  .header-start{min-height:44px;padding:.6rem .65rem;gap:.3rem}
+  .dev-options-trigger{min-width:44px;min-height:44px;justify-content:center}
+  .main-nav{padding-bottom:max(1rem,env(safe-area-inset-bottom));max-height:calc(100dvh - 68px);overflow-y:auto}
+  .main-nav a{min-height:46px;display:flex;align-items:center}
+  .journey-overline{letter-spacing:.045em}
+  .microlab-scroll .scroll-scrub__stage{min-height:560px;min-height:min(76svh,720px)}
+  .microlab-scroll .scroll-scrub__chapter-pin,.microlab-scroll .scroll-scrub__chapter[data-align=right] .scroll-scrub__chapter-pin{padding:4.5rem 1rem 2rem}
+  .microlab-scroll .scroll-scrub__title{font-size:clamp(2.8rem,11.5vw,4.4rem);overflow-wrap:anywhere}
+  .microlab-scroll .scroll-scrub__body{max-width:34ch;font-size:1rem;line-height:1.6}
+  .microlab-scroll .scroll-scrub__route{display:flex;gap:.25rem;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+  .microlab-scroll .scroll-scrub__route-button{flex:0 0 auto;min-height:44px;padding:.55rem .6rem}
+  .intro-strip{grid-template-columns:1fr 1fr;gap:.8rem}
+  .strip-cell{align-items:flex-start;min-width:0}
+  .strip-cell div{min-width:0}
+  .strip-cell b,.strip-cell div span{overflow-wrap:anywhere}
+  .section-wrap{width:calc(100% - 1.5rem)}
+  .workspace-section,.lab-section,.robot-maze-section{scroll-margin-top:78px}
+  .overview-heading{gap:.8rem}
+  .progress-ring{width:70px;height:70px}
+  .workbench-rail{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rail-item{min-width:0;min-height:48px;justify-content:center;text-align:center;overflow-wrap:anywhere}
+  .ide-topbar select,.lab-control-block select,.maze-topline select{min-height:44px;font-size:16px}
+  .editor-shell textarea{width:100%;max-width:100%;font-size:14px;line-height:1.55;overflow-wrap:normal;white-space:pre;overscroll-behavior-x:contain}
+  .ide-buttons button,.lab-control-actions button,.maze-dpad button,.maze-reset,.complete-lesson,.quest-check-button,.project-filters button{min-height:44px}
+  .lesson-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lesson-row{min-width:0;min-height:64px}
+  .lesson-row-copy{min-width:0;overflow-wrap:anywhere}
+  .lab-state{white-space:normal;min-height:44px}
+  .canvas-topline,.canvas-footer{gap:.5rem;padding:.7rem;flex-wrap:wrap;font-size:.65rem}
+  .circuit-art{height:clamp(270px,78vw,340px)}
+  .component-item{min-height:96px;padding:.75rem}
+  .guide-form input,.guide-form textarea,.project-search{min-height:44px;width:100%;min-width:0;font-size:16px}
+  .guide-prompts{display:grid;grid-template-columns:1fr;gap:.45rem}
+  .guide-prompts button{text-align:left;min-height:44px;padding:.7rem}
+  .docs-grid,.project-grid,.overview-grid,.lesson-layout,.lab-layout,.maze-shell{min-width:0}
+  .site-footer{padding-left:1rem;padding-right:1rem}
+  .footer-meta{gap:.65rem}
+}
+@media(max-width:390px){
+  .header-start{font-size:.67rem;padding-inline:.5rem}
+  .header-start svg{display:none}
+  .dev-options-trigger{min-width:40px;padding:.35rem}
+  .intro-strip{grid-template-columns:1fr}
+  .strip-cell{align-items:center}
+  .overview-welcome h2,.section-heading h2,.docs-heading h2,.guide-aside h2{overflow-wrap:anywhere}
+  .path-preview{grid-template-columns:1fr 1fr}
+  .lesson-list{grid-template-columns:1fr}
+  .lab-control-actions{grid-template-columns:1fr}
+  .builder-title-actions button{font-size:.54rem}
+  .builder-viewport{height:350px;min-height:320px}
+  .quest-card-top{align-items:flex-start;flex-wrap:wrap}
+  .quest-xp-tag{white-space:nowrap}
+}
+@media(hover:none){.header-start:hover,.quest-node:hover,.quest-check-button:hover{transform:none}}
